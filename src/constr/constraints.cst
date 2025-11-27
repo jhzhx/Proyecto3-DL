@@ -1,0 +1,49 @@
+IO_LOC  "btn_clear" 54;
+
+IO_LOC  "btn_rem" 68;
+
+IO_LOC  "btn_quot" 57;
+
+IO_LOC  "btn_div" 56;
+
+IO_LOC  "clk_27mhz" 52;
+
+IO_LOC  "segmentos_out[0]" 86;
+
+IO_LOC  "segmentos_out[1]" 83;
+
+IO_LOC  "segmentos_out[2]" 79;
+
+IO_LOC  "segmentos_out[3]" 81;
+
+IO_LOC  "segmentos_out[4]" 82;
+
+IO_LOC  "segmentos_out[5]" 85;
+
+IO_LOC  "segmentos_out[6]" 84;
+
+IO_LOC  "segmentos_out[7]" 80;
+
+IO_LOC  "anodos_out[0]" 77;
+
+IO_LOC  "anodos_out[1]" 76;
+
+IO_LOC  "anodos_out[2]" 75;
+
+IO_LOC  "anodos_out[3]" 74;
+
+IO_LOC  "keypad_cols[0]" 38;
+
+IO_LOC  "keypad_cols[1]" 37;
+
+IO_LOC  "keypad_cols[2]" 36;
+
+IO_LOC  "keypad_cols[3]" 39;
+
+IO_LOC  "keypad_rows[0]" 40;
+
+IO_LOC  "keypad_rows[1]" 41;
+
+IO_LOC  "keypad_rows[2]" 51;
+
+IO_LOC  "keypad_rows[3]" 53;
