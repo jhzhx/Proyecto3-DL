@@ -21,7 +21,43 @@ Este último se encarga de recibir los datos en formato BCD y mostrarlos en el d
 Su función principal, como su nombre lo indica, es mostrar los resultados obtenidos en el display de 7 segmentos, para ello, se utiliza el refresh, lo cual permite reiniciar la operación. Se activan los dígitos de acuerdo al funcionamiento de la conversión de BCD a 7 segmentos. 
 
 ## 4. Diagrama de bloques 
+En la siguiente imagen, se encuentra el diagrama de bloques: 
+![Diagrama de bloques](ima/diagramabloques.png)
+### 4.1 Teclado hexadecimal y keypad_scanner 
+Este módulo se encarga de la lectura del teclado matricial, recibe la señal de reloj y de las filas y columnas presionadas, para luego realizar un barrido y con ello, detectar cuáles teclas estpan activas. 
+### 4.2 Debouncer
+Este se encarga de garantizar que la señal sea estable, es decir, que no se repita y que sea leída correctamente. 
+### 4.3 Key_deco o decodificador de teclas 
+Este módulo realiza la "traducción" del código del teclado e indica si lo presionado fue un número. 
+### 4.4 Control de FSM (botones)
+Se asegura que cada botón no genere rebotes y se controla de manera general el flujo del sistemas. Además, se registra el primer operando, es decir el dividendo, y luego el divisor. El primer dígito se guarda en 4 bits y cada dígito desplaza el número 4 bits a la izquierda. 
+### 4.5 Division unit 
+Opera de manera interna con un total de 16 bits, implementa el algoritmo iterativo de división por resta y desplazamiento, es decir, realiza la operación matemática como tal. 
+### 4.6 Control de FSM (resultados) 
+Implmenta estados como el IDLE, INPUT_NUM1, entre etros, se encarga de controlar los registros y enviar señales al display_refresh. 
+### 4.7 Display_refresh
+Finalmente, este se encarga de mostrar el resultado obtenido, cociente y residuo. 
+
 ## 5. Diagrama de máquina de estados 
+El diagrama de máquina de estados corresponde a: 
+
+![Diagrama de estaodos](ima/fsm.png)
+
+### 5.1 IDLE
+Espera la primera tecla por presionar y además, se encarga de limpiar el sistema. 
+### 5.2 INGRESAR_NUM1
+Carga los bits correspondientes al registro del dividendo. 
+### 5.3 INGRESAR_NUM2
+Carga los bits correspondientes al registro del divisor. 
+### 5.4 START_DIV
+Genera el pulso que señala el inicio de la división. 
+### 5.5 ESPERAR_DIV
+La máquina de estados espera que el divisor iterativo active done_div. 
+### 5.6 MOSTRAR_COCIENTE 
+El sistema muestra el cociente obtenido en el display de 7 segmentos. 
+### 5.7 MOSTRAR_RESIDUO
+Luego de presionar el botón, se muestra el residuo obtenido en el display de 7 segmentos. 
+
 ## 6. Simulación funcional 
 La simulación del circuito se realizó en un test bench en SystemVerliog, el cual, permite modelar la forma en la que se ejecutaría el algoritmo, desde que se presionan las teclas, hasta que se muestra el resultado final. Esta simulación toma en cuenta las entradas del teclado, los estados de la Finite State Machine, así como las señales de inicio y de salida hasta el display de 7 segmentos. La simulación permite corrobar el flujo correcto del algoritmo. Para este caso, se realizará la simulación de 46_10 (2E_16) entre 5_10 (05_16), el cual corresponde a un cociente de 9 y un residuo de 1.
 ### 6.1 Ingreso de datos 
