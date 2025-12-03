@@ -23,22 +23,34 @@ Su función principal, como su nombre lo indica, es mostrar los resultados obten
 ## 4. Diagrama de bloques 
 ## 5. Diagrama de máquina de estados 
 ## 6. Simulación funcional 
-La simulación del circuito se realizó en un test bench en SystemVerliog, el cual, permite modelar la forma en la que se ejecutaría el algoritmo, desde que se presionan las teclas, hasta que se muestra el resultado final. Esta simulación toma en cuenta las entradas del teclado, los estados de la Finite State Machine, así como las señales de inicio y de salida hasta el display de 7 segmentos. La simulación permite corrobar el flujo correcto del algoritmo. Para este caso, se realizará la simulación de 46~10~ (2E~16~) entre 5~10~ (05~16~), el cual corresponde a un cociente de 9 y un residuo de 1. 
+La simulación del circuito se realizó en un test bench en SystemVerliog, el cual, permite modelar la forma en la que se ejecutaría el algoritmo, desde que se presionan las teclas, hasta que se muestra el resultado final. Esta simulación toma en cuenta las entradas del teclado, los estados de la Finite State Machine, así como las señales de inicio y de salida hasta el display de 7 segmentos. La simulación permite corrobar el flujo correcto del algoritmo. Para este caso, se realizará la simulación de 46~10~ (2E~16~) entre 5~10~ (05~16~), el cual corresponde a un cociente de 9 y un residuo de 1.
 ### 6.1 Ingreso de datos 
 En la primera parte, se ingresan los datos que se necesitan, es deicr, el diviendo y el divisor.
--La persona usuaria ingresa los dígitos correspondientes al dividendo: 4 y luego 6
+-La persona usuaria ingresa los dígitos correspondientes al dividendo: 4 y luego 6.
+
 -Se presiona la tecla configurada como la operación de división.
+
 -Se ingresan los datos correspondientes al divisor, en este caso: 0 y luego 5.
+
 -El usuario presiona la tecla correspondiente a la operación "igual" que ejecuta el comando. 
+
 -Se visualiza el cociente, en este caso "9" , luego el usuario presiona un botón para obtener el cociente, es decir, "1!
 ### 6.2 Funcionamiento interno 
 Una vez la persona usuaria haya ingresado todas las entradas e instrucciones correspondientes, la FSM se asegura de que se carguen correctamente el dividendo y el divisor, así como los registros, así, comienza la iteración. Esta desplaza el residuo y el dividendo, para ello, se toma en cuenta el flanco de reloj,finalmente, se verifica el signo de la misma
 ### 6.3 Cociente y residuo
 En la parte final, es decir, el despliegue de resultados, la FSM controla que se muestre primero el cociente, para ello, el testbench simula la señal del botón presionado que permite mostrar en primer lugar el cociente y luego el resultado. Así se obtiente que: quotient = 9 y remainder = 1. 
 -La secuencia de ingreso de datos es interpretada por la FSM. 
+
 -El algoritmo iterativo genera el cociente y el residuo correspondiente. 
+
 -El conversor de Bin a BCD transforma los resultados de binario a decimal. 
+
 -El display de 7 segmentos muestra correctamente el cociente y luego, tras presionar el botón el residuo de la división. 
+
+A continuación, se muestra el wave form generado por el testbench, que refleja la simulación explicada: 
+
+![waveform](ima/waveform.png)
+
 ## 7. Reporte de velocidades máximas 
 La FPGA utiliza correspnde a la Tang Nano 9k, por lo que, el sistema opera con una señal de reloj máxima de 27MHz, este límite esta definido para poder realizar las funciones de conversión de binario a BCD, así como el debounce, entre otros. 
 ## 8. Problemas encontrados y sus soluciones 
@@ -47,11 +59,16 @@ En este proyecto, los principales problemas encontrados se dieron en el cableado
 ### Jiahui Zhong Xie 
 
 ![Jiahui1](ima/jiahui1.png)
+
 ![Jiahui2](ima/jiahui2.png)
+
 ![Jiahui3](ima/jiahui3.png)
 
 ### Ximena Araya Brenes 
 ![Ximena1](ima/ximena1.png)
+
 ![Ximena2](ima/ximena2.png)
+
 ![Ximena3](ima/ximena3.png)
+
 ![Ximena4](ima/ximena4.png)
