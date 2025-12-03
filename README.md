@@ -23,7 +23,7 @@ Su función principal, como su nombre lo indica, es mostrar los resultados obten
 ## 4. Diagrama de bloques 
 ## 5. Diagrama de máquina de estados 
 ## 6. Simulación funcional 
-La simulación del circuito se realizó en un test bench en SystemVerliog, el cual, permite modelar la forma en la que se ejecutaría el algoritmo, desde que se presionan las teclas, hasta que se muestra el resultado final. Esta simulación toma en cuenta las entradas del teclado, los estados de la Finite State Machine, así como las señales de inicio y de salida hasta el display de 7 segmentos. La simulación permite corrobar el flujo correcto del algoritmo. Para este caso, se realizará la simulación de 46~10~ (2E~16~) entre 5~10~ (05~16~), el cual corresponde a un cociente de 9 y un residuo de 1.
+La simulación del circuito se realizó en un test bench en SystemVerliog, el cual, permite modelar la forma en la que se ejecutaría el algoritmo, desde que se presionan las teclas, hasta que se muestra el resultado final. Esta simulación toma en cuenta las entradas del teclado, los estados de la Finite State Machine, así como las señales de inicio y de salida hasta el display de 7 segmentos. La simulación permite corrobar el flujo correcto del algoritmo. Para este caso, se realizará la simulación de 46_10 (2E_16) entre 5_10 (05_16), el cual corresponde a un cociente de 9 y un residuo de 1.
 ### 6.1 Ingreso de datos 
 En la primera parte, se ingresan los datos que se necesitan, es deicr, el diviendo y el divisor.
 -La persona usuaria ingresa los dígitos correspondientes al dividendo: 4 y luego 6.
@@ -34,7 +34,7 @@ En la primera parte, se ingresan los datos que se necesitan, es deicr, el divien
 
 -El usuario presiona la tecla correspondiente a la operación "igual" que ejecuta el comando. 
 
--Se visualiza el cociente, en este caso "9" , luego el usuario presiona un botón para obtener el cociente, es decir, "1!
+-Se visualiza el cociente, en este caso "9" , luego el usuario presiona un botón para obtener el cociente, es decir, "1"
 ### 6.2 Funcionamiento interno 
 Una vez la persona usuaria haya ingresado todas las entradas e instrucciones correspondientes, la FSM se asegura de que se carguen correctamente el dividendo y el divisor, así como los registros, así, comienza la iteración. Esta desplaza el residuo y el dividendo, para ello, se toma en cuenta el flanco de reloj,finalmente, se verifica el signo de la misma
 ### 6.3 Cociente y residuo
