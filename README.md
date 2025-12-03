@@ -13,7 +13,7 @@ Primero se realiza un "barrido" de las columnas y filas para determinar que tecl
 ### 3.2 Subsistema de división iterativa de los datos
 En este subsistema se ejecuta la lógica iterativa de división, es decir, se reciben tanto el dividendo como el divisor, se realiza la división N cantidad de iteraciones. Lo cual produce el residuo y el cociente, finalmente, ejecuta los ciclos para realizar la resta, se registra el residuo y se desplaza. El funcionamiento del algoritmo se muestra en la imagen a continuación: 
 
-![Algoritmo de división iterativo](ima/algoritmo.png)
+![Algoritmo de división iterativo](algoritmo.png)
 
 ### 3.3 Subsistema de conversión binaria a BCD 
 Este último se encarga de recibir los datos en formato BCD y mostrarlos en el display de 7 segmentos, para ello, en el primer módulo se indica que número debe mostrarse, luego se decodifica para poder ser representado en los siete segmentos (a-g) de manera correspondiente, por último el multiplexor se encarga de activar un display a la vez. 
@@ -22,7 +22,7 @@ Su función principal, como su nombre lo indica, es mostrar los resultados obten
 
 ## 4. Diagrama de bloques 
 En la siguiente imagen, se encuentra el diagrama de bloques: 
-![Diagrama de bloques](ima/diagramabloques.png)
+![Diagrama de bloques](diagramabloques.png)
 ### 4.1 Teclado hexadecimal y keypad_scanner 
 Este módulo se encarga de la lectura del teclado matricial, recibe la señal de reloj y de las filas y columnas presionadas, para luego realizar un barrido y con ello, detectar cuáles teclas estpan activas. 
 ### 4.2 Debouncer
@@ -41,7 +41,7 @@ Finalmente, este se encarga de mostrar el resultado obtenido, cociente y residuo
 ## 5. Diagrama de máquina de estados 
 El diagrama de máquina de estados corresponde a: 
 
-![Diagrama de estaodos](ima/fsm.png)
+![Diagrama de estaodos](fsm.png)
 
 ### 5.1 IDLE
 Espera la primera tecla por presionar y además, se encarga de limpiar el sistema. 
@@ -85,7 +85,7 @@ En la parte final, es decir, el despliegue de resultados, la FSM controla que se
 
 A continuación, se muestra el wave form generado por el testbench, que refleja la simulación explicada: 
 
-![waveform](ima/waveform.png)
+![waveform](waveform.png)
 
 ## 7. Reporte de velocidades máximas 
 La FPGA utiliza correspnde a la Tang Nano 9k, por lo que, el sistema opera con una señal de reloj máxima de 27MHz, este límite esta definido para poder realizar las funciones de conversión de binario a BCD, así como el debounce, entre otros. 
@@ -94,17 +94,17 @@ En este proyecto, los principales problemas encontrados se dieron en el cableado
 ## 9. Bitácora 
 ### Jiahui Zhong Xie 
 
-![Jiahui1](ima/jiahui1.png)
+![Jiahui1](jiahui1.png)
 
-![Jiahui2](ima/jiahui2.png)
+![Jiahui2](jiahui2.png)
 
-![Jiahui3](ima/jiahui3.png)
+![Jiahui3](jiahui3.png)
 
 ### Ximena Araya Brenes 
-![Ximena1](ima/ximena1.png)
+![Ximena1](ximena1.png)
 
-![Ximena2](ima/ximena2.png)
+![Ximena2](ximena2.png)
 
-![Ximena3](ima/ximena3.png)
+![Ximena3](ximena3.png)
 
-![Ximena4](ima/ximena4.png)
+![Ximena4](ximena4.png)
