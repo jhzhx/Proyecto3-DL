@@ -12,8 +12,46 @@ El circuito de manera general, consiste en un teclado hexadecimal, un display de
 Primero se realiza un "barrido" de las columnas y filas para determinar que teclas fueron presionadas, luego el debouncer se encarga de verificar que no se generen rebotes, es decir, que los pulsos sean correctos y finalmente, convierte las convierte a señales lógicas. En este caso, se controla mediante una FSM en el momento en el que los dígitos son ingresados, tanto del dividendo y el divisor. Las saildas de este subsistema consisten en: dividendo, divisor y start_division. 
 ### 3.2 Subsistema de división iterativa de los datos
 En este subsistema se ejecuta la lógica iterativa de división, es decir, se reciben tanto el dividendo como el divisor, se realiza la división N cantidad de iteraciones. Lo cual produce el residuo y el cociente, finalmente, ejecuta los ciclos para realizar la resta, se registra el residuo y se desplaza. El funcionamiento del algoritmo se muestra en la imagen a continuación: 
+
 ![Algoritmo de división iterativo](ima/algoritmo.png)
+
 ### 3.3 Subsistema de conversión binaria a BCD 
 Este último se encarga de recibir los datos en formato BCD y mostrarlos en el display de 7 segmentos, para ello, en el primer módulo se indica que número debe mostrarse, luego se decodifica para poder ser representado en los siete segmentos (a-g) de manera correspondiente, por último el multiplexor se encarga de activar un display a la vez. 
 ### 3.4 Subsistema de despliegue de 7 segmentos 
 Su función principal, como su nombre lo indica, es mostrar los resultados obtenidos en el display de 7 segmentos, para ello, se utiliza el refresh, lo cual permite reiniciar la operación. Se activan los dígitos de acuerdo al funcionamiento de la conversión de BCD a 7 segmentos. 
+
+## 4. Diagrama de bloques 
+## 5. Diagrama de máquina de estados 
+## 6. Simulación funcional 
+La simulación del circuito se realizó en un test bench en SystemVerliog, el cual, permite modelar la forma en la que se ejecutaría el algoritmo, desde que se presionan las teclas, hasta que se muestra el resultado final. Esta simulación toma en cuenta las entradas del teclado, los estados de la Finite State Machine, así como las señales de inicio y de salida hasta el display de 7 segmentos. La simulación permite corrobar el flujo correcto del algoritmo. Para este caso, se realizará la simulación de 46~10~ (2E~16~) entre 5~10~ (05~16~), el cual corresponde a un cociente de 9 y un residuo de 1. 
+### 6.1 Ingreso de datos 
+En la primera parte, se ingresan los datos que se necesitan, es deicr, el diviendo y el divisor.
+-La persona usuaria ingresa los dígitos correspondientes al dividendo: 4 y luego 6
+-Se presiona la tecla configurada como la operación de división.
+-Se ingresan los datos correspondientes al divisor, en este caso: 0 y luego 5.
+-El usuario presiona la tecla correspondiente a la operación "igual" que ejecuta el comando. 
+-Se visualiza el cociente, en este caso "9" , luego el usuario presiona un botón para obtener el cociente, es decir, "1!
+### 6.2 Funcionamiento interno 
+Una vez la persona usuaria haya ingresado todas las entradas e instrucciones correspondientes, la FSM se asegura de que se carguen correctamente el dividendo y el divisor, así como los registros, así, comienza la iteración. Esta desplaza el residuo y el dividendo, para ello, se toma en cuenta el flanco de reloj,finalmente, se verifica el signo de la misma
+### 6.3 Cociente y residuo
+En la parte final, es decir, el despliegue de resultados, la FSM controla que se muestre primero el cociente, para ello, el testbench simula la señal del botón presionado que permite mostrar en primer lugar el cociente y luego el resultado. Así se obtiente que: quotient = 9 y remainder = 1. 
+-La secuencia de ingreso de datos es interpretada por la FSM. 
+-El algoritmo iterativo genera el cociente y el residuo correspondiente. 
+-El conversor de Bin a BCD transforma los resultados de binario a decimal. 
+-El display de 7 segmentos muestra correctamente el cociente y luego, tras presionar el botón el residuo de la división. 
+## 7. Reporte de velocidades máximas 
+La FPGA utiliza correspnde a la Tang Nano 9k, por lo que, el sistema opera con una señal de reloj máxima de 27MHz, este límite esta definido para poder realizar las funciones de conversión de binario a BCD, así como el debounce, entre otros. 
+## 8. Problemas encontrados y sus soluciones 
+En este proyecto, los principales problemas encontrados se dieron en el cableado, en primera instancia, se encontraron que ciertos pines del display de 7 segmentos de cuatro dígitos no encendían, esto se solucionó corrigiendo la conexión de los cables, asegurándose que estos realmente hicieran conexión. Similar a este problema, ciertos segmentos del display se veían más tenues que otros, por lo cual también se revisaron las resistencias utilizadas y sus valores para corregirlo. Finalmente, ciertas conexiones se acortaron, con el objetivo de reducir la resistividad, así como, la revisión manual con multímetro del display para garantizar que este funcionara correctamente. 
+## 9. Bitácora 
+### Jiahui Zhong Xie 
+
+![Jiahui1](ima/jiahui1.png)
+![Jiahui2](ima/jiahui2.png)
+![Jiahui3](ima/jiahui3.png)
+
+### Ximena Araya Brenes 
+![Ximena1](ima/ximena1.png)
+![Ximena2](ima/ximena2.png)
+![Ximena3](ima/ximena3.png)
+![Ximena4](ima/ximena4.png)
